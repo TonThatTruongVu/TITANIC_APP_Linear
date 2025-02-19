@@ -21,7 +21,7 @@ if not os.path.exists(MODEL_PATH):
 model = joblib.load(MODEL_PATH)
 
 # Giao diện Streamlit
-st.title("🚢 Dự đoán khả năng sống sót trên Titanic")
+st.title(" Dự đoán khả năng sống sót trên Titanic")
 
 # Nhập thông tin hành khách
 pclass = st.selectbox("Hạng vé", [1, 2, 3])
