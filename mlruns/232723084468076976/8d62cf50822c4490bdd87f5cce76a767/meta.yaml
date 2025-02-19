@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/HocMay_Python/TITANIC_APP_Linear/mlruns/232723084468076976/8d62cf50822c4490bdd87f5cce76a767/artifacts
+end_time: 1739982123065
+entry_point_name: ''
+experiment_id: '232723084468076976'
+lifecycle_stage: active
+run_id: 8d62cf50822c4490bdd87f5cce76a767
+run_name: spiffy-hawk-622
+run_uuid: 8d62cf50822c4490bdd87f5cce76a767
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739982116686
+status: 3
+tags: []
+user_id: HP

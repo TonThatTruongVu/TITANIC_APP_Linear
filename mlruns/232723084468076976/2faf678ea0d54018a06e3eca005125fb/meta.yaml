@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/HocMay_Python/TITANIC_APP_Linear/mlruns/232723084468076976/2faf678ea0d54018a06e3eca005125fb/artifacts
+end_time: 1739982887326
+entry_point_name: ''
+experiment_id: '232723084468076976'
+lifecycle_stage: active
+run_id: 2faf678ea0d54018a06e3eca005125fb
+run_name: intrigued-sheep-851
+run_uuid: 2faf678ea0d54018a06e3eca005125fb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739982881520
+status: 3
+tags: []
+user_id: HP

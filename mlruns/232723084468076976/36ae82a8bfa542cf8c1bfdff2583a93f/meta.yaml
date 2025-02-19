@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/HocMay_Python/TITANIC_APP_Linear/mlruns/232723084468076976/36ae82a8bfa542cf8c1bfdff2583a93f/artifacts
+end_time: 1739983080392
+entry_point_name: ''
+experiment_id: '232723084468076976'
+lifecycle_stage: active
+run_id: 36ae82a8bfa542cf8c1bfdff2583a93f
+run_name: hilarious-tern-581
+run_uuid: 36ae82a8bfa542cf8c1bfdff2583a93f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739983075178
+status: 3
+tags: []
+user_id: HP
