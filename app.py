@@ -40,10 +40,10 @@ input_data = pd.DataFrame([[pclass, sex, age, sibsp, parch, fare]],
 input_data_scaled = scaler.transform(input_data)
 
 # Dự đoán khi nhấn nút
-if st.button("🚀 Dự đoán"):
+if st.button(" Dự đoán"):
     try:
         prediction = model.predict(pd.DataFrame(input_data_scaled, 
                                                 columns=["Pclass", "Sex", "Age", "SibSp", "Parch", "Fare"]))[0]
-        st.success(f"### 🏆 Xác suất sống sót dự đoán: {round(prediction, 2)}")
+        st.success(f"### Xác suất sống sót dự đoán: {round(prediction, 2)}")
     except Exception as e:
         st.error(f"Lỗi trong quá trình dự đoán: {e}")
