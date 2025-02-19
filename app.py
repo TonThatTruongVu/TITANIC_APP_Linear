@@ -1,30 +1,27 @@
 import streamlit as st
-import mlflow.pyfunc
 import numpy as np
 import pandas as pd
 import joblib
 import os
 
-# Kiểm tra xem mô hình và scaler có tồn tại không
+# Định nghĩa đường dẫn mô hình và scaler
 MODEL_PATH = "models/model.pkl"
 SCALER_PATH = "models/scaler.pkl"
-LOGGED_MODEL = "runs:/36ae82a8bfa542cf8c1bfdff2583a93f/model"
 
+# Kiểm tra và tải scaler
 if not os.path.exists(SCALER_PATH):
     st.error("Không tìm thấy file scaler.pkl. Hãy chạy lại data_processing.py để tạo scaler.")
     st.stop()
-
-# Load scaler
 scaler = joblib.load(SCALER_PATH)
 
-try:
-    model = mlflow.pyfunc.load_model(LOGGED_MODEL)
-except Exception as e:
-    st.error(f"Lỗi khi tải mô hình từ MLflow: {e}")
+# Kiểm tra và tải mô hình
+if not os.path.exists(MODEL_PATH):
+    st.error("Không tìm thấy file model.pkl. Hãy đảm bảo đã lưu mô hình vào thư mục models/.")
     st.stop()
+model = joblib.load(MODEL_PATH)
 
 # Giao diện Streamlit
-st.title(" Dự đoán khả năng sống sót trên Titanic")
+st.title("🚢 Dự đoán khả năng sống sót trên Titanic")
 
 # Nhập thông tin hành khách
 pclass = st.selectbox("Hạng vé", [1, 2, 3])
@@ -49,4 +46,4 @@ if st.button("🚀 Dự đoán"):
                                                 columns=["Pclass", "Sex", "Age", "SibSp", "Parch", "Fare"]))[0]
         st.success(f"### 🏆 Xác suất sống sót dự đoán: {round(prediction, 2)}")
     except Exception as e:
-        st.error(f" Lỗi trong quá trình dự đoán: {e}")
+        st.error(f"Lỗi trong quá trình dự đoán: {e}")

@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/HocMay_Python/TITANIC_APP_Linear/mlruns/232723084468076976/5f2fc1cbd3c14ba4bdebf0a127428395/artifacts
+end_time: 1739984374568
+entry_point_name: ''
+experiment_id: '232723084468076976'
+lifecycle_stage: active
+run_id: 5f2fc1cbd3c14ba4bdebf0a127428395
+run_name: flawless-turtle-642
+run_uuid: 5f2fc1cbd3c14ba4bdebf0a127428395
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739984369514
+status: 3
+tags: []
+user_id: HP
