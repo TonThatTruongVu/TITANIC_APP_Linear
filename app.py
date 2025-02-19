@@ -1,18 +1,20 @@
 import streamlit as st
-import mlflow.pyfunc
 import numpy as np
 import pandas as pd
 import joblib
 
-# Load mô hình từ MLflow
-logged_model = "runs:/36ae82a8bfa542cf8c1bfdff2583a93f/model"
-model = mlflow.pyfunc.load_model(logged_model)
+# Load mô hình từ file thay vì MLflow
+model_path = "models/model.pkl"
+scaler_path = "models/scaler.pkl"
 
-# Load scaler để chuẩn hóa dữ liệu
-scaler = joblib.load("models/scaler.pkl")  # Đảm bảo file này tồn tại
+try:
+    model = joblib.load(model_path)
+    scaler = joblib.load(scaler_path)
+except FileNotFoundError:
+    st.error("Không tìm thấy model hoặc scaler. Hãy kiểm tra lại!")
 
 # Streamlit UI
-st.title("Dự đoán khả năng sống sót Titanic")
+st.title("🚢 Dự đoán khả năng sống sót Titanic")
 
 # Nhập thông tin hành khách
 pclass = st.selectbox("Hạng vé (1: First, 2: Second, 3: Third)", [1, 2, 3])
@@ -27,11 +29,11 @@ sex = 1 if sex == "Nữ" else 0
 input_data = pd.DataFrame([[pclass, sex, age, sibsp, parch, fare]], 
                           columns=["Pclass", "Sex", "Age", "SibSp", "Parch", "Fare"])
 
-# Chuẩn hóa dữ liệu đầu vào
-input_data_scaled = scaler.transform(input_data)
-
-# Dự đoán
-if st.button("Dự đoán"):
-    prediction = model.predict(pd.DataFrame(input_data_scaled, 
-                                            columns=["Pclass", "Sex", "Age", "SibSp", "Parch", "Fare"]))[0]
-    st.write(f"### Xác suất sống sót dự đoán: {round(prediction, 2)}")
+# Dự đoán khi bấm nút
+if st.button("🔍 Dự đoán"):
+    try:
+        # Chuẩn hóa dữ liệu đầu vào
+        input_data_scaled = scaler.transform(input_data)
+        
+        # Dự đoán
+        prediction = model.predict(input_data_scaled)[0]
